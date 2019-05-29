@@ -1,5 +1,7 @@
 {
   "name": "Examen",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
