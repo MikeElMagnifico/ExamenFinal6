@@ -20,7 +20,7 @@ export class HomePage {
     this.user = firebase.auth().currentUser;
     this.db = firebase.firestore();
 
-    this.db.collection('arboles').orderBy('timestamp', 'desc')
+    this.db.collection('imagenes').orderBy('timestamp', 'desc')
     .onSnapshot(query => {
       this.arboles = [];
       query.forEach(imagen =>{

@@ -9,11 +9,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-    <ion-card *ngFor = "let a of arboles">
+<ion-content padding style="background-color: #53F4FF">
+    <ion-card *ngFor = "let a of arboles" style="background-color: #4A7C59">
       <img src= "{{a.url}}">
       <ion-card-content>
-        {{a.comentario}}
+        Tipo de Árbol: {{a.tipo}},
+        Ancho de Copa: {{a.anchoc}},
+        Ancho de Tronco: {{a.anchot}},
+        Latitud: {{a.cordy}},
+        Longitud: {{a.cordx}}
       </ion-card-content>
     </ion-card>
     </ion-content>

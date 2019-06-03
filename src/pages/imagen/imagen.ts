@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
 
 import * as firebase from 'firebase';
 import 'firebase/storage';
@@ -22,14 +23,24 @@ export class ImagenPage {
   tipo;
   anchoc;
   anchot;
+  cordx = 0;
+  cordy = 0;
   storage: firebase.storage.Storage;
   db: firebase.firestore.Firestore; 
   user: firebase.User
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loading : LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loading : LoadingController, private geo : Geolocation) {
     this.imagen = this.navParams.get('image')
     this.storage = firebase.storage();
     this.db = firebase.firestore();
     this.user = firebase.auth().currentUser;
+    this.geo.getCurrentPosition().then((resp)=>{
+      this.cordy=resp.coords.latitude;
+      console.log(resp.coords.latitude)
+      this.cordx=resp.coords.longitude;
+      console.log(resp.coords.longitude)
+    }).catch((error) => {
+    console.log('Error getting location', error);
+  })
   }
 
   ionViewDidLoad() {
@@ -42,7 +53,10 @@ export class ImagenPage {
       anchot : this.anchot,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       url: '',
-      user: this.user.uid
+      user: this.user.uid,
+      cordx: this.cordx,
+      cordy: this.cordy
+
     };
 
     let loading = this.loading.create({
