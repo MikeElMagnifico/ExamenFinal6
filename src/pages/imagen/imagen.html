@@ -11,19 +11,16 @@
 </ion-header>
 
 <ion-content padding style="background-color: #4A7C59">
-<img src = {{imagen}}>
+  <img src={{imagen}}>
 </ion-content>
 <ion-footer>
   <ion-toolbar>
-    <ion-input placeholder = "Tipo de Árbol"
-    [(ngModel)] = "tipo"></ion-input>
-    <ion-input placeholder = "Ancho de Copa"
-    [(ngModel)] = "anchoc"></ion-input>
-    <ion-input placeholder = "Ancho de Tronco"
-    [(ngModel)] = "anchot"></ion-input>
+    <ion-input placeholder="Tipo de Árbol." [(ngModel)]="tipo" style="background-color: #53F4FF"></ion-input>
+    <ion-input placeholder="Ancho de Copa." [(ngModel)]="anchoc" style="background-color: #53F4FF"></ion-input>
+    <ion-input placeholder="Ancho de Tronco " [(ngModel)]="anchot" style="background-color: #53F4FF"></ion-input>
     <ion-buttons end>
-      <button ion-button icon-only (click) = "subirImagen()">
-        <ion-icon name = "send"></ion-icon>
+      <button ion-button icon-only (click)="subirImagen()">
+        <ion-icon name="send"></ion-icon>
       </button>
     </ion-buttons>
   </ion-toolbar>

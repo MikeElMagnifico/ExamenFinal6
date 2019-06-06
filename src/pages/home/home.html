@@ -13,11 +13,11 @@
     <ion-card *ngFor = "let a of arboles" style="background-color: #4A7C59">
       <img src= "{{a.url}}">
       <ion-card-content>
-        Tipo de Árbol: {{a.tipo}},
-        Ancho de Copa: {{a.anchoc}},
-        Ancho de Tronco: {{a.anchot}},
-        Latitud: {{a.cordy}},
-        Longitud: {{a.cordx}}
+        <p>Tipo de Árbol: {{a.tipo}}</p>
+        <p>Ancho de Copa: {{a.anchoc}}</p>
+        <p> de Tronco: {{a.anchot}}</p>
+        <p>Latitud: {{a.cordy}}</p>
+        <p>Longitud: {{a.cordx}}</p>
       </ion-card-content>
     </ion-card>
     </ion-content>
